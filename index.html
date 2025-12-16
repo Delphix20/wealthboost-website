@@ -1,438 +1,1183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WealthBoost AI - Your personal AI-powered wealth-building companion. Build wealth through daily missions, progress tracking, and personalized financial coaching.">
-    <title>WealthBoost AI - Build Your Wealth, One Day at a Time</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="WealthBoost AI - Your personal AI-powered wealth-building companion. Build wealth through daily missions, progress tracking, and personalized financial coaching."
+  />
+  <title>WealthBoost AI - Build Your Wealth, One Day at a Time</title>
 
-        :root {
-            --dark-bg: #12082E;
-            --dark-bg-bottom: #050017;
-            --primary-purple: #7A3BFF;
-            --secondary-emerald: #1EE6A5;
-            --card-bg: rgba(255, 255, 255, 0.06);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text-primary: #FFFFFF;
-            --text-secondary: rgba(255, 255, 255, 0.7);
-            --corner-radius-large: 24px;
-            --corner-radius-medium: 16px;
-            --corner-radius-small: 10px;
-        }
+  <!-- Nunito (closest vibe to iOS rounded; system font still primary) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', 'SF Pro Display', system-ui, sans-serif;
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-bottom) 100%);
-            color: var(--text-primary);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    :root {
+      --dark-bg: #12082e;
+      --dark-bg-bottom: #050017;
+      --primary-purple: #7a3bff;
+      --secondary-emerald: #1ee6a5;
+      --card-bg: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.10);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.72);
+      --text-tertiary: rgba(255, 255, 255, 0.55);
 
-        /* Header */
-        header {
-            padding: 40px 20px;
-            text-align: center;
-        }
+      --corner-radius-xl: 28px;
+      --corner-radius-large: 24px;
+      --corner-radius-medium: 16px;
+      --corner-radius-small: 12px;
 
-        .logo {
-            font-size: 48px;
-            font-weight: bold;
-            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-emerald) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
-        }
+      --shadow-soft: 0 10px 40px rgba(0,0,0,0.28);
+      --shadow-card: 0 12px 40px rgba(0,0,0,0.35);
 
-        .tagline {
-            font-size: 20px;
-            color: var(--text-secondary);
-            font-weight: 400;
-            margin-bottom: 40px;
-        }
+      --max-width: 1180px;
+      --pad-x: 20px;
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-        }
+      --glass: blur(14px);
+      --stroke: 1px solid var(--card-border);
 
-        .hero h1 {
-            font-size: 56px;
-            font-weight: bold;
-            margin-bottom: 24px;
-            line-height: 1.2;
-            letter-spacing: -2px;
-        }
+      --hero-title: clamp(40px, 5vw, 72px);
+      --hero-sub: clamp(16px, 1.6vw, 20px);
+      --section-title: clamp(28px, 3.2vw, 44px);
+      --section-sub: clamp(15px, 1.45vw, 18px);
+    }
 
-        .hero p {
-            font-size: 20px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 48px;
-            line-height: 1.6;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Display",
+        system-ui, "Nunito", sans-serif;
+      background: radial-gradient(1000px 600px at 70% -10%, rgba(122,59,255,0.25), transparent 60%),
+                  radial-gradient(900px 500px at 10% 110%, rgba(30,230,165,0.20), transparent 60%),
+                  linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-bottom) 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
 
-        /* App Store Button */
-        .download-section {
-            text-align: center;
-            padding: 40px 20px;
-        }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
-        .download-section h2 {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 32px;
-        }
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
 
-        .app-store-button {
-            display: inline-block;
-            margin: 20px;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            cursor: pointer;
-        }
+    /* Subtle decorative accents */
+    .glow {
+      position: absolute;
+      width: 560px;
+      height: 560px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.28;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow.purple { background: radial-gradient(circle, var(--primary-purple) 0%, transparent 60%); }
+    .glow.green  { background: radial-gradient(circle, var(--secondary-emerald) 0%, transparent 60%); }
+    .glow.one { top: -240px; right: -260px; }
+    .glow.two { bottom: -260px; left: -260px; opacity: 0.22; }
 
-        .app-store-button:hover {
-            transform: scale(1.05);
-            opacity: 0.9;
-        }
+    .content {
+      position: relative;
+      z-index: 1;
+    }
 
-        .app-store-button img {
-            height: 60px;
-            width: auto;
-            border-radius: 12px;
-        }
+    /* Top Nav (Apple-ish) */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(8, 4, 22, 0.55);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 200px;
+    }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-emerald) 100%);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 65%);
+      transform: translate(18px, 10px);
+    }
+    .brand-name {
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      font-size: 16px;
+      line-height: 1;
+    }
+    .brand-tag {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 2px;
+    }
 
-        /* Features Grid */
-        .features {
-            padding: 80px 20px;
-        }
+    .navlinks {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .navlinks a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .navlinks a:hover {
+      background: rgba(255,255,255,0.06);
+      color: var(--text-primary);
+    }
 
-        .features h2 {
-            font-size: 42px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 16px;
-        }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      justify-content: flex-end;
+    }
 
-        .features > .container > p {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 18px;
-            margin-bottom: 48px;
-        }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      color: var(--text-secondary);
+      font-size: 13px;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+    }
+    .pill:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.14);
+      color: var(--text-primary);
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--secondary-emerald);
+      box-shadow: 0 0 18px rgba(30,230,165,0.5);
+    }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
+    /* Hero */
+    .hero {
+      padding: 70px 0 42px;
+      text-align: center;
+    }
 
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: var(--corner-radius-large);
-            padding: 32px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
+    .hero .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin: 0 auto 18px;
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+    }
 
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary-purple);
-        }
+    .hero h1 {
+      font-size: var(--hero-title);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
 
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
-        }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-emerald) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
 
-        .feature-card h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--text-primary);
-        }
+    .hero p {
+      font-size: var(--hero-sub);
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 760px;
+      margin: 0 auto 26px;
+    }
 
-        .feature-card p {
-            font-size: 16px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
 
-        /* Screenshots Section */
-        .screenshots {
-            padding: 80px 20px;
-            text-align: center;
-        }
+    .primary-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(122,59,255,0.95) 0%, rgba(30,230,165,0.85) 100%);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      border: 0;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+    }
+    .primary-btn:hover { transform: translateY(-1px); opacity: 0.95; }
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+    .secondary-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.14);
+    }
 
-        .screenshots h2 {
-            font-size: 42px;
-            font-weight: bold;
-            margin-bottom: 48px;
-        }
+    /* App Store */
+    .download {
+      padding: 18px 0 52px;
+      text-align: center;
+    }
+    .store-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .app-store-button {
+      display: inline-block;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+    }
+    .app-store-button:hover { transform: translateY(-2px) scale(1.02); opacity: 0.95; }
+    .app-store-button img {
+      height: 56px;
+      width: auto;
+      border-radius: 12px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.28);
+    }
+    .fineprint {
+      margin-top: 14px;
+      color: var(--text-tertiary);
+      font-size: 13px;
+      line-height: 1.55;
+    }
 
-        .screenshot-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+    /* Section base */
+    section {
+      padding: 80px 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+    .section-header h2 {
+      font-size: var(--section-title);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .section-header p {
+      font-size: var(--section-sub);
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 820px;
+      margin: 0 auto;
+    }
 
-        .screenshot {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: var(--corner-radius-medium);
-            padding: 20px;
-            backdrop-filter: blur(10px);
-        }
+    /* Highlight strip (Apple-ish big cards) */
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 18px;
+      margin-top: 38px;
+    }
+    .highlight {
+      border-radius: var(--corner-radius-xl);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+    .highlight .inner {
+      padding: 34px;
+    }
+    .highlight h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .highlight p {
+      color: var(--text-secondary);
+      line-height: 1.65;
+      font-size: 15.5px;
+      max-width: 720px;
+    }
+    .highlight .mini {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .mini-card {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(0,0,0,0.24);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .mini-card h4 {
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .mini-card p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
 
-        .screenshot img {
-            width: 100%;
-            height: auto;
-            border-radius: var(--corner-radius-small);
-        }
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--text-secondary);
+      font-size: 13px;
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+    }
+    .badge strong {
+      color: var(--text-primary);
+      font-weight: 800;
+    }
 
-        .screenshot-placeholder {
-            width: 100%;
-            aspect-ratio: 9/16;
-            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--secondary-emerald) 100%);
-            border-radius: var(--corner-radius-small);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-        }
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 26px;
+    }
+    .feature {
+      grid-column: span 4;
+      border-radius: var(--corner-radius-large);
+      background: var(--card-bg);
+      border: var(--stroke);
+      padding: 26px;
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .feature:hover {
+      transform: translateY(-3px);
+      border-color: rgba(122,59,255,0.55);
+      background: rgba(255,255,255,0.07);
+    }
+    .feature .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.10);
+      margin-bottom: 14px;
+      font-size: 20px;
+    }
+    .feature h3 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+    }
+    .feature p {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
 
-        /* Footer */
-        footer {
-            padding: 60px 20px 40px;
-            text-align: center;
-            border-top: 1px solid var(--card-border);
-            margin-top: 80px;
-        }
+    /* How it works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .step {
+      grid-column: span 6;
+      border-radius: var(--corner-radius-large);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 26px;
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+    }
+    .step-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      background: linear-gradient(135deg, rgba(122,59,255,0.95) 0%, rgba(30,230,165,0.85) 100%);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      font-size: 14px;
+    }
+    .step h3 {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.4px;
+    }
+    .step p {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      line-height: 1.7;
+    }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
+    /* App previews */
+    .previews {
+      padding-top: 60px;
+    }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 34px;
+      align-items: start;
+    }
+    .preview {
+      grid-column: span 3;
+      border-radius: var(--corner-radius-large);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 14px;
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.30);
+    }
+    .preview .frame {
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.10);
+      aspect-ratio: 9 / 16;
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.85);
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      position: relative;
+    }
+    .preview .frame::after {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 60%);
+      transform: translate(30px, 20px);
+      pointer-events: none;
+    }
+    .preview p {
+      margin-top: 12px;
+      color: var(--text-secondary);
+      font-size: 13.5px;
+      line-height: 1.55;
+      padding: 0 4px 2px;
+    }
+    .preview strong {
+      color: var(--text-primary);
+      font-weight: 900;
+    }
 
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.2s ease;
-        }
+    /* Privacy + Trust */
+    .trust {
+      padding-top: 60px;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .trust-card {
+      grid-column: span 4;
+      border-radius: var(--corner-radius-large);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 24px;
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+    }
+    .trust-card h3 {
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+    .trust-card p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.7;
+    }
 
-        .footer-links a:hover {
-            color: var(--text-primary);
-        }
+    /* FAQ */
+    .faq {
+      padding-top: 60px;
+    }
+    details {
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 18px 18px;
+      margin-bottom: 12px;
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+    }
+    summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 900;
+      letter-spacing: -0.3px;
+      color: var(--text-primary);
+      font-size: 14.5px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    details p {
+      margin-top: 10px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .chev {
+      width: 18px; height: 18px;
+      opacity: 0.8;
+      transition: transform 0.2s ease;
+    }
+    details[open] .chev { transform: rotate(180deg); }
 
-        .copyright {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
+    /* Footer */
+    footer {
+      padding: 70px 0 44px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 40px;
+    }
+    .footer-inner {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .footer-left {
+      max-width: 520px;
+    }
+    .footer-left .title {
+      font-weight: 900;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+    .footer-left p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 14px;
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .footer-links a {
+      color: var(--text-secondary);
+      font-size: 14px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: var(--text-primary);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .copyright {
+      margin-top: 18px;
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
 
-            .hero p {
-                font-size: 18px;
-            }
+    /* Anchors spacing under sticky header */
+    .anchor { scroll-margin-top: 84px; }
 
-            .logo {
-                font-size: 36px;
-            }
+    /* Responsive */
+    @media (max-width: 980px) {
+      .highlight-grid { grid-template-columns: 1fr; }
+      .feature { grid-column: span 6; }
+      .step { grid-column: span 12; }
+      .preview { grid-column: span 6; }
+      .trust-card { grid-column: span 6; }
+      .nav-cta { display: none; }
+    }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
+    @media (max-width: 680px) {
+      .navlinks { display: none; }
+      .hero { padding: 56px 0 38px; }
+      section { padding: 64px 0; }
+      .feature { grid-column: span 12; }
+      .preview { grid-column: span 12; }
+      .trust-card { grid-column: span 12; }
+      .app-store-button img { height: 52px; }
+    }
 
-            .app-store-button img {
-                height: 50px;
-            }
-        }
-
-        /* Gradient Accent */
-        .gradient-accent {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--primary-purple) 0%, transparent 70%);
-            opacity: 0.3;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .gradient-accent-1 {
-            top: -200px;
-            right: -200px;
-        }
-
-        .gradient-accent-2 {
-            bottom: -200px;
-            left: -200px;
-            background: radial-gradient(circle, var(--secondary-emerald) 0%, transparent 70%);
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
-        }
-    </style>
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="gradient-accent gradient-accent-1"></div>
-    <div class="gradient-accent gradient-accent-2"></div>
-    
-    <div class="content-wrapper">
-        <header>
-            <div class="container">
-                <div class="logo">WealthBoost AI</div>
-                <p class="tagline">Your personal AI-powered wealth-building companion</p>
+  <div class="glow purple one"></div>
+  <div class="glow green two"></div>
+
+  <div class="content">
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar-inner">
+          <a class="brand" href="#top" aria-label="WealthBoost AI">
+            <div class="brand-mark" aria-hidden="true"></div>
+            <div>
+              <div class="brand-name">WealthBoost AI</div>
+              <div class="brand-tag">Daily wealth-building, personalized.</div>
             </div>
-        </header>
+          </a>
 
-        <section class="hero">
-            <div class="container">
-                <h1>Build Your Wealth,<br>One Day at a Time</h1>
-                <p>Transform your financial future with personalized daily missions, AI-powered coaching, and progress tracking designed to help you build sustainable wealth.</p>
-            </div>
-        </section>
+          <nav class="navlinks" aria-label="Site navigation">
+            <a href="#features">Features</a>
+            <a href="#how">How it works</a>
+            <a href="#previews">Previews</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#faq">FAQ</a>
+          </nav>
 
-        <section class="download-section">
-            <div class="container">
-                <h2>Download Now</h2>
-                <!-- Replace with your App Store button image and link -->
-                <a href="#" class="app-store-button" id="app-store-link">
-                    <img src="app-store-button.png" alt="Download on the App Store" id="app-store-image">
-                </a>
-                <p style="color: var(--text-secondary); font-size: 14px; margin-top: 16px;">
-                    Coming soon to the App Store
-                </p>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <h2>Why WealthBoost AI?</h2>
-                <p>Everything you need to build wealth, all in one app</p>
-                
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🤖</div>
-                        <h3>AI-Powered Coaching</h3>
-                        <p>Get personalized financial advice and coaching from WealthBoost AI. Ask questions, get insights, and receive guidance tailored to your goals.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">📋</div>
-                        <h3>Daily Missions</h3>
-                        <p>Complete 5 personalized missions every day designed to build your wealth through income, learning, and mindset activities.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">💍</div>
-                        <h3>Wealth Rings</h3>
-                        <p>Track your daily progress with three wealth rings: Income, Learning, and Mindset. Close all rings each day to build consistent habits.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3>Progress Tracking</h3>
-                        <p>Monitor your financial journey with detailed progress cards, weekly reflections, and money decision points that help you grow.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">💡</div>
-                        <h3>Side Hustle Ideas</h3>
-                        <p>Discover personalized side hustle ideas matched to your skills, time availability, and startup style to boost your income.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Monetization Strategies</h3>
-                        <p>Get complete monetization guides and strategies tailored to your current stage and focus area to maximize your earning potential.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="screenshots">
-            <div class="container">
-                <h2>See WealthBoost AI in Action</h2>
-                <div class="screenshot-grid">
-                    <div class="screenshot">
-                        <div class="screenshot-placeholder">Home Dashboard</div>
-                    </div>
-                    <div class="screenshot">
-                        <div class="screenshot-placeholder">Daily Missions</div>
-                    </div>
-                    <div class="screenshot">
-                        <div class="screenshot-placeholder">AI Coach</div>
-                    </div>
-                    <div class="screenshot">
-                        <div class="screenshot-placeholder">Progress Tracking</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="container">
-                <div class="footer-links">
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
-                    <a href="#support">Support</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <p class="copyright">© 2025 WealthBoost AI. All rights reserved.</p>
-            </div>
-        </footer>
+          <div class="nav-cta">
+            <a class="pill" href="#download">
+              <span class="dot" aria-hidden="true"></span>
+              Download
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script>
-        // Update App Store link when you have it
-        // document.getElementById('app-store-link').href = 'YOUR_APP_STORE_LINK';
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    <!-- Hero -->
+    <header class="hero" id="top">
+      <div class="container">
+        <div class="kicker">
+          <span class="dot" aria-hidden="true"></span>
+          Personalized missions, progress rings, and a focused AI money coach.
+        </div>
+
+        <h1>
+          Build wealth with <span class="gradient-text">tiny daily moves</span> that compound.
+        </h1>
+
+        <p>
+          WealthBoost AI turns your profile into a simple daily plan: short missions, clear progress,
+          and a practical coach that keeps you focused on income, saving, learning, and mindset.
+        </p>
+
+        <div class="hero-cta">
+          <a class="primary-btn" href="#download" aria-label="Go to download section">
+            Get the app
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="secondary-btn" href="#previews" aria-label="See app previews">
+            See it in action
+            <span aria-hidden="true">▾</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Download -->
+    <section class="download anchor" id="download">
+      <div class="container">
+        <div class="section-header">
+          <h2>Download WealthBoost AI</h2>
+          <p>
+            Designed for iPhone and iPad. Clean, calm, and built for daily momentum.
+          </p>
+        </div>
+
+        <div class="store-row">
+          <!-- Keep your App Store button image and link -->
+          <a href="#" class="app-store-button" id="app-store-link" aria-label="Download on the App Store">
+            <img src="app-store-button.png" alt="Download on the App Store" id="app-store-image" />
+          </a>
+
+          <!-- Optional: if you later add another button (TestFlight, etc.), keep same styling -->
+          <!--
+          <a href="#" class="app-store-button" id="testflight-link" aria-label="Join TestFlight">
+            <img src="testflight-button.png" alt="Join TestFlight" />
+          </a>
+          -->
+        </div>
+
+        <div class="fineprint">
+          Tip: Add your App Store URL in the script at the bottom when ready.
+          <br />
+          The experience is personalized from your onboarding profile.
+        </div>
+      </div>
+    </section>
+
+    <!-- Apple-ish Highlights -->
+    <section class="anchor" id="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Simple. Personal. Built to stick.</h2>
+          <p>
+            WealthBoost AI is designed like a daily ritual: short tasks, visible progress, and
+            guidance that stays on-topic—money and wealth.
+          </p>
+        </div>
+
+        <div class="highlight-grid">
+          <div class="highlight">
+            <div class="inner">
+              <h3>Daily missions that match your life.</h3>
+              <p>
+                Get five missions per day across spending, income, learning, mindset, and a wildcard.
+                They’re kept short (1–3 lines), profile-based, and balanced so you can actually finish them.
+              </p>
+
+              <div class="badge-row" aria-label="Highlights">
+                <div class="badge"><strong>5</strong> daily missions</div>
+                <div class="badge"><strong>XP</strong> scales with difficulty</div>
+                <div class="badge"><strong>AI</strong> tailored to your profile</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight">
+            <div class="inner">
+              <div class="mini">
+                <div class="mini-card">
+                  <h4>Wealth Rings</h4>
+                  <p>Close your rings for Income, Learning, and Mindset.</p>
+                </div>
+                <div class="mini-card">
+                  <h4>Focused AI Coach</h4>
+                  <p>Always steers back to money, saving, earning, and practical steps.</p>
+                </div>
+                <div class="mini-card">
+                  <h4>Progress Page</h4>
+                  <p>Daily and weekly interactive tasks that make progress visible.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="features-grid" style="margin-top: 34px;">
+          <div class="feature">
+            <div class="icon" aria-hidden="true">🤖</div>
+            <h3>AI coaching that stays on track</h3>
+            <p>
+              Ask anything. If it’s off-topic, the coach gently redirects to a financial angle
+              instead of responding like a general chatbot.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="icon" aria-hidden="true">📋</div>
+            <h3>Missions with real-world impact</h3>
+            <p>
+              Built for consistency: tiny actions that improve spending habits, build income,
+              and strengthen your money mindset over time.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="icon" aria-hidden="true">💍</div>
+            <h3>Progress you can see</h3>
+            <p>
+              Rings, XP, streaks, and weekly reflections give you a clear sense of momentum
+              without overwhelming charts.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="icon" aria-hidden="true">💡</div>
+            <h3>Side-hustle ideas you can actually try</h3>
+            <p>
+              Get ideas based on your skills and time. Small steps first, then guidance to
+              improve offers, pricing, and consistency.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="icon" aria-hidden="true">🎯</div>
+            <h3>Content monetization support</h3>
+            <p>
+              Turn your knowledge and interests into earning paths with daily ideas and
+              practical next steps to test quickly.
+            </p>
+          </div>
+
+          <div class="feature">
+            <div class="icon" aria-hidden="true">🧠</div>
+            <h3>Learning that becomes action</h3>
+            <p>
+              Short lessons and quizzes that help you make better decisions—without long,
+              boring finance lectures.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="anchor" id="how">
+      <div class="container">
+        <div class="section-header">
+          <h2>How it works</h2>
+          <p>
+            You set your profile once. WealthBoost AI turns it into daily actions and guidance.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-top">
+              <div class="step-num">1</div>
+              <h3>Tell the app who you are</h3>
+            </div>
+            <p>
+              Choose your goals, time availability, income range, and skills. This becomes the
+              foundation for everything the AI generates for you.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-num">2</div>
+              <h3>Complete short daily missions</h3>
+            </div>
+            <p>
+              Five tasks per day, across key categories. XP rewards scale with difficulty so the
+              plan stays realistic and motivating.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-num">3</div>
+              <h3>Watch your progress compound</h3>
+            </div>
+            <p>
+              Track streaks, ring progress, daily reflections, and weekly tasks. Small wins add up
+              fast when they’re consistent.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-num">4</div>
+              <h3>Use the AI coach for clarity</h3>
+            </div>
+            <p>
+              When you feel stuck, ask for a plan, a next step, or a money habit. The assistant is
+              designed to stay focused on wealth-building, not random topics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Previews -->
+    <section class="previews anchor" id="previews">
+      <div class="container">
+        <div class="section-header">
+          <h2>See it in action</h2>
+          <p>
+            Replace these placeholders with your real app previews/screenshots (same layout).
+          </p>
+        </div>
+
+        <div class="preview-grid">
+          <div class="preview">
+            <!-- Replace placeholder with your screenshot image -->
+            <!-- <img class="frame" src="preview-home.jpg" alt="Home view preview" /> -->
+            <div class="frame">Home Dashboard</div>
+            <p><strong>Home</strong> shows your rings, money thought, and quick actions.</p>
+          </div>
+
+          <div class="preview">
+            <!-- <img class="frame" src="preview-missions.jpg" alt="Daily missions preview" /> -->
+            <div class="frame">Daily Missions</div>
+            <p><strong>Missions</strong> are short, profile-based, and XP-balanced.</p>
+          </div>
+
+          <div class="preview">
+            <!-- <img class="frame" src="preview-coach.jpg" alt="AI coach preview" /> -->
+            <div class="frame">AI Coach</div>
+            <p><strong>Coach</strong> gives practical steps and keeps the topic on money.</p>
+          </div>
+
+          <div class="preview">
+            <!-- <img class="frame" src="preview-progress.jpg" alt="Progress page preview" /> -->
+            <div class="frame">Progress Page</div>
+            <p><strong>Progress</strong> adds daily + weekly interactive tasks for momentum.</p>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top: 28px;">
+          <a class="pill" href="#download">
+            <span class="dot" aria-hidden="true"></span>
+            Get WealthBoost AI
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy / Trust -->
+    <section class="trust anchor" id="privacy">
+      <div class="container">
+        <div class="section-header">
+          <h2>Built with privacy in mind</h2>
+          <p>
+            Keep this section aligned with how your app actually works. Update the copy if you change data handling.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <div class="trust-card">
+            <h3>Personalized, not invasive</h3>
+            <p>
+              The app personalizes missions and guidance using your onboarding profile, so advice
+              matches your goals and time—without needing unnecessary personal details.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <h3>Money-first AI behavior</h3>
+            <p>
+              The assistant is designed to focus on wealth-building topics. If someone tries to push
+              it into unrelated or unsafe areas, it redirects back to finances.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <h3>Clear, calm UX</h3>
+            <p>
+              No clutter. No guilt. WealthBoost AI is designed to feel like your app: premium,
+              simple, and focused on daily wins.
+            </p>
+          </div>
+        </div>
+
+        <!-- Anchor targets for your footer links -->
+        <div id="terms" class="anchor" style="padding-top: 1px;"></div>
+        <div id="support" class="anchor" style="padding-top: 1px;"></div>
+        <div id="contact" class="anchor" style="padding-top: 1px;"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq anchor" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2>Questions, answered</h2>
+          <p>
+            Keep it short like Apple. Add/remove items as your product evolves.
+          </p>
+        </div>
+
+        <details>
+          <summary>
+            Is WealthBoost AI financial advice?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <p>
+            It’s educational coaching and habit-building. It focuses on practical steps, budgeting,
+            income ideas, and simple investing education—not individualized investment, tax, or legal advice.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            How are missions personalized?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <p>
+            Missions are generated using your onboarding profile (goals, time, skills, and focus).
+            They’re kept short and balanced to fit real schedules.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            Will I get the same missions every day?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <p>
+            The goal is variety without randomness. Daily content is generated with your profile context
+            and day-based constraints to reduce repetition over time.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            What do I do if I’m busy?
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <p>
+            Do one mission. That’s enough. The app is designed so small wins still count and momentum
+            stays alive.
+          </p>
+        </details>
+
+        <div style="text-align:center; margin-top: 22px;">
+          <a class="primary-btn" href="#download">
+            Download WealthBoost AI <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-left">
+            <div class="title">WealthBoost AI</div>
+            <p>
+              Build wealth with tiny daily actions. Personalized missions, progress tracking, and
+              a focused AI coach designed to help you stay consistent.
+            </p>
+            <div class="copyright">© 2025 WealthBoost AI. All rights reserved.</div>
+          </div>
+
+          <div class="footer-links" aria-label="Footer links">
+            <a href="#privacy" id="privacy-link">Privacy Policy</a>
+            <a href="#terms" id="terms-link">Terms of Service</a>
+            <a href="#support" id="support-link">Support</a>
+            <a href="#contact" id="contact-link">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Update App Store link when you have it:
+    // document.getElementById('app-store-link').href = 'YOUR_APP_STORE_LINK';
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
