@@ -358,12 +358,17 @@
     .highlight-grid {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 24px;
+      gap: 40px;
       margin-top: 38px;
-      max-width: 700px;
+      max-width: 1000px;
       margin-left: auto;
       margin-right: auto;
+    }
+    .highlight-section {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: start;
     }
     .highlight-image {
       width: 100%;
@@ -371,7 +376,6 @@
       border-radius: var(--corner-radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow-card);
-      margin-bottom: 32px;
     }
     .highlight-image img {
       width: 100%;
@@ -382,31 +386,40 @@
     .highlight-content {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 20px;
+      gap: 16px;
       width: 100%;
     }
     .highlight-symbol {
-      width: 64px;
-      height: 64px;
+      width: 96px;
+      height: 96px;
+      flex-shrink: 0;
     }
     .highlight-symbol img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
+    .highlight-rings {
+      width: 300px;
+      flex-shrink: 0;
+    }
+    .highlight-rings img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
     .highlight-content h3 {
       font-size: 22px;
       font-weight: 600;
       letter-spacing: -0.5px;
       line-height: 1.2;
+      margin: 0;
     }
     .highlight-content p {
       color: var(--text-secondary);
       line-height: 1.65;
       font-size: 15.5px;
-      max-width: 600px;
+      margin: 0;
     }
     .highlight .mini { display: grid; grid-template-columns: 1fr; gap: 14px; }
     .mini-card {
@@ -745,7 +758,16 @@
     /* Responsive */
     @media (max-width: 980px) {
       .highlight-grid {
+        gap: 32px;
+      }
+      .highlight-section {
+        grid-template-columns: 1fr;
         gap: 20px;
+        text-align: center;
+      }
+      .highlight-symbol,
+      .highlight-rings {
+        margin: 0 auto;
       }
       .feature { grid-column: span 6; }
       .step { grid-column: span 12; }
@@ -864,34 +886,37 @@
           </div>
 
           <div class="highlight-grid">
-            <div class="highlight-image">
+            <div class="highlight-image" style="margin: 0 auto 32px;">
               <img src="Images/image1-tree.png" alt="Daily missions illustration" />
             </div>
 
-            <div class="highlight-content">
-              <h3>Daily missions and Progress tasks that match your life.</h3>
-              
+            <div class="highlight-section">
               <div class="highlight-symbol">
                 <img src="Images/dailymissions-symbol.png" alt="Daily missions symbol" />
               </div>
-
-              <p>
-                You get five missions per day across spending, income, learning, mindset, and a wildcard. They're kept short, profile-based, and balanced so you can actually finish them.
-              </p>
-
-              <p>
-                You also get daily and weekly interactive tasks that make progress visible.
-              </p>
-
-              <h3 style="margin-top: 8px;">Close your Wealth Rings</h3>
               
-              <div style="margin-bottom: 20px; margin-top: 8px; max-width: 150px; width: 100%; margin-left: auto; margin-right: auto; border-radius: var(--corner-radius-large); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); padding: 14px; box-shadow: var(--shadow-card);">
-                <img src="Images/rings.png" alt="Wealth Rings" style="width: 100%; height: auto; display: block;" />
+              <div class="highlight-content">
+                <h3>Daily missions and Progress tasks that match your life.</h3>
+                <p>
+                  You get five missions per day across spending, income, learning, mindset, and a wildcard. They're kept short, profile-based, and balanced so you can actually finish them.
+                </p>
+                <p>
+                  You also get daily and weekly interactive tasks that make progress visible.
+                </p>
               </div>
+            </div>
 
-              <p>
-                Close your daily rings for Income, Learning, and Mindset by completing missions and progress tasks.
-              </p>
+            <div class="highlight-section">
+              <div class="highlight-rings">
+                <img src="Images/rings.png" alt="Wealth Rings" />
+              </div>
+              
+              <div class="highlight-content">
+                <h3>Close your Wealth Rings</h3>
+                <p>
+                  Close your daily rings for Income, Learning, and Mindset by completing missions and progress tasks.
+                </p>
+              </div>
             </div>
           </div>
 
