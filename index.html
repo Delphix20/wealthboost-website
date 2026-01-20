@@ -433,22 +433,19 @@
       background: rgba(255,255,255,0.07);
     }
     .feature .icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: rgba(0,0,0,0.25);
-      border: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 14px;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 1;
-      color: var(--secondary-emerald);
+      background: none;
+      border: none;
+      border-radius: 0;
+      width: auto;
+      height: auto;
     }
     .feature .icon img {
-      width: 24px;
-      height: 24px;
+      width: 36px;
+      height: 36px;
       object-fit: contain;
     }
     .feature .icon.white { color: rgba(255,255,255,0.9); }
@@ -915,7 +912,7 @@
 
             <div class="feature">
               <div class="icon" aria-hidden="true">
-                <img src="Images/Progress-symbol.png" alt="Progress symbol" />
+                <img src="Images/progress-symbol.png" alt="Progress symbol" />
               </div>
               <h3>Progress you can see</h3>
               <p>
