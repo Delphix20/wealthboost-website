@@ -236,17 +236,27 @@
       backdrop-filter: var(--glass);
       -webkit-backdrop-filter: var(--glass);
       z-index: 99;
-      padding-top: 80px;
       overflow-y: auto;
+      flex-direction: column;
     }
     .mobile-menu.active {
-      display: block;
+      display: flex;
+    }
+    .mobile-menu-header {
+      padding: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-menu-header .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     .mobile-menu nav {
       display: flex;
       flex-direction: column;
       gap: 0;
       padding: 20px;
+      flex: 1;
     }
     .mobile-menu nav a {
       font-size: 18px;
@@ -257,6 +267,21 @@
       transition: background 0.2s ease;
     }
     .mobile-menu nav a:hover {
+      background: rgba(255,255,255,0.08);
+    }
+    .mobile-menu-close {
+      padding: 20px;
+      margin: 0 20px 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 12px;
+      color: var(--text-primary);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .mobile-menu-close:hover {
       background: rgba(255,255,255,0.08);
     }
     .download-button-header {
@@ -860,6 +885,14 @@
       .preview { grid-column: span 12; }
       .trust-card { grid-column: span 12; }
       .app-store-button img { height: 52px; }
+      .hero p br { display: none; }
+      .hero-line-1,
+      .hero-line-2,
+      .hero-line-3,
+      .hero-line-4,
+      .hero-line-5 {
+        display: block;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -923,8 +956,8 @@
           </h1>
 
           <p>
-            WealthBoost AI turns your profile into a simple daily plan:<br>
-            short missions, clear progress, and a practical coach that keeps you focused<br>on income, saving, learning, and mindset.
+            <span class="hero-line-1">WealthBoost AI turns your profile</span> <span class="hero-line-2">into a simple daily plan:</span><br>
+            <span class="hero-line-3">short missions, clear progress, and</span> <span class="hero-line-4">a practical coach that keeps you focused</span><br><span class="hero-line-5">on income, saving, learning, and mindset.</span>
           </p>
 
           <div class="hero-cta">
@@ -1139,7 +1172,7 @@
 
             <div class="preview">
               <img class="frame" src="preview-coach.png" alt="AI coach preview" />
-              <p><strong>Coach</strong> gives practical steps and keeps the topic on money.</p>
+              <p><strong>AI Coach</strong> gives practical steps and keeps the topic on money.</p>
             </div>
 
             <div class="preview">
@@ -1365,6 +1398,15 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a class="brand" href="#top" aria-label="WealthBoost AI">
+        <img src="appicon.png" alt="WealthBoost AI" class="brand-icon" />
+        <div>
+          <div class="brand-name">WealthBoost AI</div>
+          <div class="brand-tag">Daily wealth-building, personalized.</div>
+        </div>
+      </a>
+    </div>
     <nav>
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
@@ -1374,12 +1416,20 @@
       <a href="#faq">FAQ</a>
       <a href="#download">Download</a>
     </nav>
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">Close</button>
   </div>
 
   <script>
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
     const APPSTORE_URL = "https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789";
+
+    function closeMobileMenu() {
+      if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+      if (mobileMenu) mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
 
     if (mobileMenuToggle && mobileMenu) {
       mobileMenuToggle.addEventListener('click', function() {
@@ -1388,19 +1438,22 @@
         document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
       });
 
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-          mobileMenuToggle.classList.remove('active');
-          mobileMenu.classList.remove('active');
-          document.body.style.overflow = '';
-        });
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+      }
+
+      const mobileMenuHeaderLink = mobileMenu.querySelector('.mobile-menu-header a');
+      if (mobileMenuHeaderLink) {
+        mobileMenuHeaderLink.addEventListener('click', closeMobileMenu);
+      }
+
+      mobileMenu.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
       });
 
       mobileMenu.addEventListener('click', function(e) {
         if (e.target === mobileMenu) {
-          mobileMenuToggle.classList.remove('active');
-          mobileMenu.classList.remove('active');
-          document.body.style.overflow = '';
+          closeMobileMenu();
         }
       });
     }
