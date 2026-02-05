@@ -897,7 +897,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
     }
-    .footer-left { max-width: 520px; }
+    .footer-left { max-width: 520px; display: flex; flex-direction: column; }
     .footer-left .title { font-weight: 700; letter-spacing: -0.4px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
     .footer-logo {
       width: 31px;
@@ -910,10 +910,11 @@
 
     .footer-links {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: flex-start;
+      margin-top: 10px;
     }
     .footer-right {
       display: flex;
@@ -1634,6 +1635,11 @@
                 a focused AI coach designed to help you stay consistent.
               </p>
               <div class="copyright">© 2026 WealthBoost AI. All rights reserved.</div>
+              <div class="footer-links" aria-label="Footer links">
+                <a href="https://wealthboost.app/privacy_policy" id="privacy-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="https://wealthboost.app/privacy_policy" id="terms-link" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                <a href="mailto:devpaulcrp@gmail.com" id="contact-link">Contact</a>
+              </div>
             </div>
 
             <div class="footer-right">
@@ -1657,11 +1663,6 @@
                     <path d="M19 4L5 20"/>
                   </svg>
                 </a>
-              </div>
-              <div class="footer-links" aria-label="Footer links">
-                <a href="https://wealthboost.app/privacy_policy" id="privacy-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-                <a href="https://wealthboost.app/privacy_policy" id="terms-link" target="_blank" rel="noopener noreferrer">Terms of Service</a>
-                <a href="mailto:devpaulcrp@gmail.com" id="contact-link">Contact</a>
               </div>
             </div>
           </div>
