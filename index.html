@@ -67,9 +67,9 @@
       --primary-purple: #7a3bff;
       --secondary-emerald: #1ee6a5;
       --card-bg: rgba(255, 255, 255, 0.06);
-      --card-border: rgba(255, 255, 255, 0.10);
-      --card-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.04) 100%);
-      --card-surface-strong: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.05) 100%);
+      --card-border: rgba(255, 255, 255, 0.0);
+      --card-surface: rgba(255, 255, 255, 0.07);
+      --card-surface-strong: rgba(255, 255, 255, 0.09);
       --card-hover-border: rgba(122,59,255,0.55);
       --text-primary: #ffffff;
       --text-secondary: rgba(255, 255, 255, 0.72);
@@ -87,7 +87,7 @@
       --pad-x: 20px;
 
       --glass: blur(14px);
-      --stroke: 1px solid var(--card-border);
+      --stroke: none;
 
       --hero-title: clamp(24px, 3.0vw, 42px);
       --hero-sub: clamp(16px, 1.6vw, 20px);
@@ -119,38 +119,43 @@
       box-sizing: border-box;
     }
 
-    /* ✅ NEW: page wrapper clips ALL decorative overflow (including glows) */
-    .page {
+    /* App-matching background: dark purple base + light purple at top + light green at very bottom (footer, blurred to avoid banding) */
+                            .page {
       position: relative;
       min-height: 100vh;
       width: 100%;
       max-width: 100%;
-      background:
-        radial-gradient(1000px 600px at 70% -10%, rgba(122,59,255,0.25), transparent 60%),
-        radial-gradient(900px 500px at 10% 110%, rgba(30,230,165,0.20), transparent 60%),
-        linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-bg-bottom) 100%);
+      background-image:
+        radial-gradient(700px 460px at 100% 0%, rgba(122,59,255,0.18), rgba(122,59,255,0.0) 78%),
+        radial-gradient(700px 480px at 0% 100%, rgba(30,230,165,0.32), rgba(30,230,165,0.0) 72%),
+        linear-gradient(180deg,
+          rgba(18,8,46,1) 0%,
+          rgba(18,8,46,0.98) 35%,
+          rgba(5,0,23,0.99) 70%,
+          rgba(5,0,23,1) 100%
+        ),
+        linear-gradient(180deg,
+          rgba(122,59,255,0.45) 0%,
+          rgba(122,59,255,0.18) 22%,
+          rgba(0,0,0,0) 48%
+        ),
+        linear-gradient(180deg,
+          rgba(0,0,0,0) 55%,
+          rgba(30,230,165,0.28) 80%,
+          rgba(30,230,165,0.45) 100%
+        ),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+      background-size: cover, cover, cover, cover, cover, 200px 200px;
+      background-blend-mode: normal, normal, normal, normal, normal, soft-light;
       overflow-x: hidden; /* fallback */
       overflow-y: hidden; /* fallback */
     }
-    @supports (overflow: clip) {
+    
+    .page > * { position: relative; z-index: 1; }
+            
+            @supports (overflow: clip) {
       .page { overflow-x: clip; overflow-y: clip; }
     }
-
-    /* Decorative accents */
-    .glow {
-      position: absolute;
-      width: 560px;
-      height: 560px;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0.28;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .glow.purple { background: radial-gradient(circle, var(--primary-purple) 0%, transparent 60%); }
-    .glow.green  { background: radial-gradient(circle, var(--secondary-emerald) 0%, transparent 60%); }
-    .glow.one { top: -240px; right: -260px; }
-    .glow.two { bottom: -260px; left: -260px; opacity: 0.22; }
 
     .content {
       position: relative;
@@ -423,7 +428,7 @@
       padding: 12px 16px;
       border-radius: 999px;
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
+      border: none;
       color: var(--text-primary);
       font-weight: 800;
       font-size: 14px;
@@ -560,10 +565,12 @@
     }
     .highlight .mini { display: grid; grid-template-columns: 1fr; gap: 14px; }
     .mini-card {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
       padding: 22px;
       border-radius: 22px;
-      background: rgba(0,0,0,0.24);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: var(--card-surface);
+      border: none;
     }
     .mini-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
     .mini-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
@@ -576,7 +583,7 @@
       padding: 9px 12px;
       border-radius: 999px;
       background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
+      border: none;
       color: var(--text-secondary);
       font-size: 13px;
       backdrop-filter: var(--glass);
@@ -592,10 +599,12 @@
       margin-top: 26px;
     }
     .feature {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
       grid-column: span 4;
       border-radius: var(--corner-radius-large);
       background: var(--card-surface);
-      border: var(--stroke);
+      border: none;
       padding: 26px;
       backdrop-filter: var(--glass);
       -webkit-backdrop-filter: var(--glass);
@@ -603,7 +612,7 @@
     }
     .feature:hover {
       transform: translateY(-3px);
-      border-color: rgba(122,59,255,0.40);
+      border-color: transparent;
       background: rgba(255,255,255,0.05);
     }
     .feature .icon {
@@ -652,7 +661,7 @@
       grid-column: span 6;
       border-radius: var(--corner-radius-large);
       background: var(--card-surface);
-      border: 1px solid rgba(255,255,255,0.10);
+      border: none;
       padding: 26px;
       backdrop-filter: var(--glass);
       -webkit-backdrop-filter: var(--glass);
@@ -674,7 +683,7 @@
     .step { transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
     .step:hover {
       transform: translateY(-3px);
-      border-color: rgba(122,59,255,0.40);
+      border-color: transparent;
       background: rgba(255,255,255,0.05);
     }
 
@@ -691,7 +700,7 @@
       grid-column: span 3;
       border-radius: var(--corner-radius-large);
       background: var(--card-surface);
-      border: 1px solid rgba(255,255,255,0.10);
+      border: none;
       padding: 20px;
       backdrop-filter: var(--glass);
       -webkit-backdrop-filter: var(--glass);
@@ -701,7 +710,7 @@
       border-radius: 18px;
       overflow: hidden;
       background: rgba(0,0,0,0.25);
-      border: 1px solid rgba(255,255,255,0.10);
+      border: none;
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10);
       aspect-ratio: 9 / 20;
       position: relative;
@@ -733,7 +742,7 @@
     .preview { transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
     .preview:hover {
       transform: translateY(-3px);
-      border-color: rgba(122,59,255,0.40);
+      border-color: transparent;
       background: rgba(255,255,255,0.05);
     }
     .preview strong { color: var(--text-primary); font-weight: 700; }
@@ -747,10 +756,12 @@
       margin-top: 28px;
     }
     .trust-card {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
       grid-column: span 4;
       border-radius: var(--corner-radius-large);
       background: var(--card-surface);
-      border: 1px solid rgba(255,255,255,0.10);
+      border: none;
       padding: 24px;
       backdrop-filter: var(--glass);
       -webkit-backdrop-filter: var(--glass);
@@ -762,10 +773,12 @@
       letter-spacing: -0.4px;
     }
     .trust-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
-    .trust-card { transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
+    .trust-card {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass); transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
     .trust-card:hover {
       transform: translateY(-3px);
-      border-color: rgba(122,59,255,0.40);
+      border-color: transparent;
       background: rgba(255,255,255,0.05);
     }
 
@@ -774,7 +787,7 @@
     details {
       border-radius: 18px;
       background: var(--card-surface);
-      border: 1px solid rgba(255,255,255,0.10);
+      border: none;
       padding: 18px 18px;
       margin-bottom: 12px;
       backdrop-filter: var(--glass);
@@ -808,7 +821,7 @@
     details { transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
     details:hover {
       transform: translateY(-2px);
-      border-color: rgba(122,59,255,0.40);
+      border-color: transparent;
       background: rgba(255,255,255,0.05);
     }
     details[open] {
@@ -994,10 +1007,12 @@
       margin-right: auto;
     }
     .pricing-card {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
       grid-column: span 4;
       border-radius: var(--corner-radius-large);
       background: var(--card-surface-strong);
-      border: var(--stroke);
+      border: none;
       padding: 28px;
       backdrop-filter: var(--glass);
       -webkit-backdrop-filter: var(--glass);
@@ -1008,10 +1023,10 @@
       position: relative;
     }
     .pricing-card:hover:not(.selected) {
-      border: 2px solid var(--primary-purple);
+      border: none;
       transform: translateY(-2px);
     }
-    .pricing-card.selected { border: 2px solid var(--primary-purple); }
+    .pricing-card.selected { border: none; }
     .pricing-card.selected:hover { transform: translateY(-2px); }
     .pricing-card.recommended { position: relative; }
     .pricing-badge {
@@ -1092,24 +1107,36 @@
       .highlight-rings {
         margin: 0 auto;
       }
-      .feature { grid-column: span 6; }
+      .feature {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass); grid-column: span 6; }
       .step { grid-column: span 12; }
       .preview { grid-column: span 6; }
-      .trust-card { grid-column: span 6; }
+      .trust-card {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass); grid-column: span 6; }
       .nav-cta { display: none; }
-      .pricing-card { grid-column: span 6 !important; }
+      .pricing-card {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass); grid-column: span 6 !important; }
     }
     @media (max-width: 680px) {
-      .pricing-card { grid-column: span 12 !important; }
+      .pricing-card {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass); grid-column: span 12 !important; }
       .navlinks { display: none; }
       .nav-cta { display: none; }
       .mobile-menu-toggle { display: flex; }
       .hero { padding: 56px 0 38px; }
       section { padding: 40px 0 70px 0; }
       .download-cta { padding: 40px 0 70px 0; }
-      .feature { grid-column: span 12; }
+      .feature {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass); grid-column: span 12; }
       .preview { grid-column: span 12; }
-      .trust-card { grid-column: span 12; }
+      .trust-card {
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass); grid-column: span 12; }
       .app-store-button img { height: 52px; }
       .hero p br { display: none; }
       .hero-line-1,
@@ -1166,11 +1193,8 @@
 </head>
 
 <body>
-  <!-- ✅ NEW WRAPPER (clips glows so nothing can render below footer) -->
+  <!-- ✅ Page wrapper with app-matching background (diagonal base + radial glows) -->
   <div class="page">
-    <div class="glow purple one"></div>
-    <div class="glow green two"></div>
-
     <div class="content">
       <!-- Topbar -->
       <div class="topbar">
