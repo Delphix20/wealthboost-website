@@ -5,36 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="WealthBoost AI - Your personal AI-powered wealth-building companion. Build wealth through daily missions, progress tracking, and personalized financial coaching."
+    content="WealthBoost - Your personal AI-powered wealth-building companion. Build wealth through daily missions, progress tracking, and personalized financial coaching."
   />
-  <title>WealthBoost AI - Build Your Wealth, One Day at a Time</title>
+  <title>WealthBoost - Build Your Wealth, One Day at a Time</title>
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://wealthboost.app/" />
-  <meta property="og:title" content="WealthBoost AI - Build Your Wealth, One Day at a Time" />
-  <meta property="og:description" content="WealthBoost AI - Your personal AI-powered wealth-building companion. Build wealth through daily missions, progress tracking, and personalized financial coaching." />
+  <meta property="og:title" content="WealthBoost - Build Your Wealth, One Day at a Time" />
+  <meta property="og:description" content="WealthBoost - Your personal AI-powered wealth-building companion. Build wealth through daily missions, progress tracking, and personalized financial coaching." />
   <meta property="og:image" content="https://wealthboost.app/Images/social-preview-image.png" />
-  <meta property="og:site_name" content="WealthBoost AI" />
+  <meta property="og:site_name" content="WealthBoost" />
   <!-- Optional: Add your Facebook App ID if you have one (get it from https://developers.facebook.com/apps/) -->
   <!-- <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID" /> -->
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://wealthboost.app/" />
-  <meta name="twitter:title" content="WealthBoost AI - Build Your Wealth, One Day at a Time" />
-  <meta name="twitter:description" content="WealthBoost AI - Your personal AI-powered wealth-building companion. Build wealth through daily missions, progress tracking, and personalized financial coaching." />
+  <meta name="twitter:title" content="WealthBoost - Build Your Wealth, One Day at a Time" />
+  <meta name="twitter:description" content="WealthBoost - Your personal AI-powered wealth-building companion. Build wealth through daily missions, progress tracking, and personalized financial coaching." />
   <meta name="twitter:image" content="https://wealthboost.app/Images/social-preview-image.png" />
-  <meta name="twitter:image:alt" content="WealthBoost AI - Build Your Wealth, One Day at a Time" />
+  <meta name="twitter:image:alt" content="WealthBoost - Build Your Wealth, One Day at a Time" />
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BV98ZGTSD0"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPCXTP0DVK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-BV98ZGTSD0');
+    gtag('config', 'G-PPCXTP0DVK');
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,7 +65,10 @@
       --dark-bg: #12082e;
       --dark-bg-bottom: #050017;
       --primary-purple: #7a3bff;
+      --primary-purple-soft: rgba(122, 59, 255, 0.26);
+      --primary-purple-bright: rgba(153, 104, 255, 0.2);
       --secondary-emerald: #1ee6a5;
+      --secondary-emerald-soft: rgba(30, 230, 165, 0.22);
       --card-bg: rgba(255, 255, 255, 0.06);
       --card-border: rgba(255, 255, 255, 0.0);
       --card-surface: rgba(255, 255, 255, 0.07);
@@ -105,7 +108,8 @@
       text-rendering: geometricPrecision;
       font-weight: 400;
       line-height: 1.6;
-      background: none; /* background moved to .page so it stops exactly with the clipped wrapper */
+      background: linear-gradient(180deg, #14092f 0%, #0d0426 42%, #050017 100%);
+      position: relative;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -119,36 +123,55 @@
       box-sizing: border-box;
     }
 
-    /* App-matching background: dark purple base + light purple at top + light green at very bottom (footer, blurred to avoid banding) */
-                            .page {
+    /* Refreshed WealthBoost background: layered glows inspired by paulcrp.com, kept in WealthBoost colors */
+    .page {
       position: relative;
       min-height: 100vh;
       width: 100%;
       max-width: 100%;
-      background-image:
-        radial-gradient(700px 460px at 100% 0%, rgba(122,59,255,0.18), rgba(122,59,255,0.0) 78%),
-        radial-gradient(700px 480px at 0% 100%, rgba(30,230,165,0.32), rgba(30,230,165,0.0) 72%),
+      isolation: isolate;
+      background:
         linear-gradient(180deg,
-          rgba(18,8,46,1) 0%,
-          rgba(18,8,46,0.98) 35%,
-          rgba(5,0,23,0.99) 70%,
+          rgba(20,9,47,0.98) 0%,
+          rgba(13,4,38,0.97) 34%,
+          rgba(8,1,24,0.98) 68%,
           rgba(5,0,23,1) 100%
-        ),
-        linear-gradient(180deg,
-          rgba(122,59,255,0.45) 0%,
-          rgba(122,59,255,0.18) 22%,
-          rgba(0,0,0,0) 48%
-        ),
-        linear-gradient(180deg,
-          rgba(0,0,0,0) 55%,
-          rgba(30,230,165,0.28) 80%,
-          rgba(30,230,165,0.45) 100%
-        ),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
-      background-size: cover, cover, cover, cover, cover, 200px 200px;
-      background-blend-mode: normal, normal, normal, normal, normal, soft-light;
+        );
       overflow-x: hidden; /* fallback */
       overflow-y: hidden; /* fallback */
+    }
+
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: -14%;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(58% 46% at 14% 6%, rgba(122, 59, 255, 0.18), transparent 72%),
+        radial-gradient(52% 42% at 88% 12%, rgba(153, 104, 255, 0.14), transparent 70%),
+        radial-gradient(54% 42% at 30% 48%, rgba(93, 44, 197, 0.13), transparent 74%),
+        radial-gradient(66% 48% at 80% 66%, rgba(30, 230, 165, 0.11), transparent 76%),
+        radial-gradient(84% 56% at 22% 98%, rgba(30, 230, 165, 0.22), transparent 80%),
+        linear-gradient(180deg, rgba(13,4,38,0.68) 0%, rgba(5,0,23,0.82) 100%);
+      filter: blur(40px) saturate(110%);
+      transform: scale(1.08);
+    }
+
+    .page::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 88px 88px;
+      opacity: 0.18;
+      mask-image: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.15) 38%, transparent 100%);
+      -webkit-mask-image: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.15) 38%, transparent 100%);
+      mix-blend-mode: soft-light;
     }
     
     .page > * { position: relative; z-index: 1; }
@@ -336,6 +359,22 @@
 
     /* Hero */
     .hero { padding: 70px 0 42px; text-align: center; }
+    .hero-icon-wrap,
+    .hero-heading,
+    .hero-subcopy,
+    .hero-note,
+    .hero-cta {
+      opacity: 0;
+      transform: translate3d(0, -28px, 0) scale(0.985);
+      filter: blur(8px);
+      animation: heroDropIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      will-change: transform, opacity, filter;
+    }
+    .hero-icon-wrap { animation-delay: 0.08s; }
+    .hero-heading { animation-delay: 0.24s; }
+    .hero-subcopy { animation-delay: 0.4s; }
+    .hero-note { animation-delay: 0.58s; }
+    .hero-cta { animation-delay: 0.76s; }
     .hero h1 {
       font-size: var(--hero-title);
       line-height: 1.05;
@@ -654,39 +693,74 @@
 
     /* How it works */
     .steps {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 40px auto 0;
+      max-width: 1120px;
     }
     .step {
-      grid-column: span 6;
-      border-radius: var(--corner-radius-large);
-      background: var(--card-surface);
-      border: none;
-      padding: 26px;
-      backdrop-filter: var(--glass);
-      -webkit-backdrop-filter: var(--glass);
-    }
-    .step-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-    .step-num {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
       display: grid;
-      place-items: center;
-      font-weight: 700;
-      background: linear-gradient(135deg, rgba(122,59,255,0.95) 0%, rgba(30,230,165,0.85) 100%);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-      font-size: 14px;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+      padding: 34px 0 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: transparent;
+      width: 100%;
     }
-    .step h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.4px; }
-    .step p { color: var(--text-primary); font-size: 14.5px; line-height: 1.7; }
-    .step { transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
-    .step:hover {
-      transform: translateY(-3px);
-      border-color: transparent;
-      background: rgba(255,255,255,0.05);
+    .step:nth-child(odd) {
+      padding-right: min(12vw, 150px);
+    }
+    .step:nth-child(even) {
+      padding-left: min(12vw, 150px);
+      grid-template-columns: minmax(0, 1fr) 120px;
+    }
+    .step:nth-child(even) .step-top {
+      order: 2;
+      align-items: flex-end;
+      text-align: right;
+    }
+    .step:nth-child(even) .step-content {
+      order: 1;
+      align-items: flex-end;
+      text-align: right;
+    }
+    .step-top {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+    .step-num {
+      font-size: clamp(46px, 5vw, 76px);
+      line-height: 0.95;
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: rgba(255,255,255,0.07);
+      -webkit-text-stroke: 1px rgba(255,255,255,0.18);
+      text-shadow: 0 14px 40px rgba(0,0,0,0.12);
+    }
+    .step-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-top: 6px;
+    }
+    .step h3 {
+      font-size: clamp(22px, 2.2vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      line-height: 1.14;
+      margin: 0;
+    }
+    .step p {
+      color: var(--text-secondary);
+      font-size: 15.5px;
+      line-height: 1.72;
+      max-width: 620px;
+      margin: 0;
     }
 
     /* Previews */
@@ -1105,7 +1179,10 @@
       .feature {
       backdrop-filter: var(--glass);
       -webkit-backdrop-filter: var(--glass); grid-column: span 6; }
-      .step { grid-column: span 12; }
+      .step {
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: 18px;
+      }
       .preview { grid-column: span 6; }
       .trust-card {
       backdrop-filter: var(--glass);
@@ -1132,6 +1209,33 @@
       .trust-card {
       backdrop-filter: var(--glass);
       -webkit-backdrop-filter: var(--glass); grid-column: span 12; }
+      .steps {
+        margin-top: 30px;
+        gap: 0;
+      }
+      .step {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 24px 0;
+      }
+      .step:nth-child(odd),
+      .step:nth-child(even) {
+        padding-left: 0;
+        padding-right: 0;
+        grid-template-columns: 1fr;
+      }
+      .step:nth-child(even) .step-top,
+      .step:nth-child(even) .step-content {
+        order: initial;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .step-num {
+        font-size: 42px;
+      }
+      .step-content {
+        padding-top: 0;
+      }
       .app-store-button img { height: 52px; }
       .hero p br { display: none; }
       .hero-line-1,
@@ -1196,17 +1300,39 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .hero, section, footer {
+    @keyframes heroDropIn {
+      from {
+        opacity: 0;
+        transform: translate3d(0, -28px, 0) scale(0.985);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+        filter: blur(0);
+      }
+    }
+    section, footer {
       animation: fadeUp 0.7s ease both;
       will-change: transform, opacity;
     }
-    .hero { animation-delay: 0.02s; }
     section { animation-delay: 0.06s; }
     footer { animation-delay: 0.1s; }
 
     @media (prefers-reduced-motion: reduce) {
       * { scroll-behavior: auto !important; transition: none !important; }
-      .hero, section, footer { animation: none !important; }
+      .hero-icon-wrap,
+      .hero-heading,
+      .hero-subcopy,
+      .hero-note,
+      .hero-cta,
+      section,
+      footer {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+      }
     }
   </style>
 </head>
@@ -1219,10 +1345,10 @@
       <div class="topbar">
         <div class="container">
           <div class="topbar-inner">
-            <a class="brand" href="#top" aria-label="WealthBoost AI">
-              <img src="appicon.png" alt="WealthBoost AI" class="brand-icon" />
+            <a class="brand" href="#top" aria-label="WealthBoost">
+              <img src="appicon.png" alt="WealthBoost" class="brand-icon" />
               <div>
-                <div class="brand-name">WealthBoost AI</div>
+                <div class="brand-name">WealthBoost</div>
                 <div class="brand-tag">Daily wealth-building, personalized.</div>
               </div>
             </a>
@@ -1237,7 +1363,7 @@
             </nav>
 
             <div class="nav-cta">
-                <a href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost AI">
+                <a href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost">
                 <img src="downloadbutton.png" alt="Download" class="download-button-header" />
               </a>
             </div>
@@ -1254,23 +1380,23 @@
       <!-- Hero -->
       <header class="hero" id="top">
         <div class="container">
-          <div style="margin-bottom: 24px; display: flex; justify-content: center;">
-            <img src="appicon.png" alt="WealthBoost AI" style="width: 120px; height: 120px; border-radius: 26px; box-shadow: 0 14px 40px rgba(0,0,0,0.28);" />
+          <div class="hero-icon-wrap" style="margin-bottom: 24px; display: flex; justify-content: center;">
+            <img src="appicon.png" alt="WealthBoost" style="width: 120px; height: 120px; border-radius: 26px; box-shadow: 0 14px 40px rgba(0,0,0,0.28);" />
           </div>
 
-          <h1>
+          <h1 class="hero-heading">
             Build wealth with <span class="gradient-text">tiny daily moves</span> that compound
           </h1>
 
-          <p>
-            <span class="hero-line-1">WealthBoost AI turns your profile</span> <span class="hero-line-2">into a simple daily plan:</span><br>
+          <p class="hero-subcopy">
+            <span class="hero-line-1">WealthBoost turns your profile</span> <span class="hero-line-2">into a simple daily plan:</span><br>
             <span class="hero-line-3">short missions, clear progress, and</span> <span class="hero-line-4">a practical coach that keeps you focused</span><br><span class="hero-line-5">on income, saving, learning, and mindset.</span>
           </p>
 
           <p class="hero-note">Designed for iPhone and iPad. Clean, calm, and built for daily momentum.</p>
 
           <div class="hero-cta">
-            <a class="primary-btn" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost AI">
+            <a class="primary-btn" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost">
               Download on iOS <span class="arrow" aria-hidden="true">→</span>
             </a>
             <a class="text-btn" href="#features" aria-label="Learn more">
@@ -1286,7 +1412,7 @@
           <div class="section-header">
             <h2>Simple. Personal. Built to stick.</h2>
             <p>
-              WealthBoost AI is designed like a daily ritual. Short tasks, visible progress, and
+              WealthBoost is designed like a daily ritual. Short tasks, visible progress, and
               guidance&nbsp;that&nbsp;stays&nbsp;on-topic:&nbsp;money&nbsp;and&nbsp;wealth.
             </p>
           </div>
@@ -1411,48 +1537,56 @@
         <div class="container">
           <div class="section-header">
             <h2>How it works</h2>
-            <p>You set your profile once. WealthBoost AI turns it into daily actions and guidance.</p>
+            <p>A simple system built to turn your profile into daily momentum.</p>
           </div>
 
           <div class="steps">
             <div class="step">
               <div class="step-top">
-                <div class="step-num">1</div>
-                <h3>Start with a simple daily plan</h3>
+                <div class="step-num">01</div>
               </div>
-              <p>
-                Your profile turns into a focused set of small actions, so you always know what to do next.
-              </p>
+              <div class="step-content">
+                <h3>Set up your profile once</h3>
+                <p>
+                  Share your goals, skills, time, and current money situation so WealthBoost can shape the right starting point for you. The app uses this to build a plan that feels relevant from day one.
+                </p>
+              </div>
             </div>
 
             <div class="step">
               <div class="step-top">
-                <div class="step-num">2</div>
-                <h3>Take quick, guided steps</h3>
+                <div class="step-num">02</div>
               </div>
-              <p>
-                Short, doable tasks keep momentum high and remove the guesswork.
-              </p>
+              <div class="step-content">
+                <h3>Get a plan you can actually follow</h3>
+                <p>
+                  Instead of generic advice, you get focused daily actions designed around your life, your pace, and what matters most right now. Clear steps remove the guesswork and make it easier to stay consistent.
+                </p>
+              </div>
             </div>
 
             <div class="step">
               <div class="step-top">
-                <div class="step-num">3</div>
-                <h3>See progress you can feel</h3>
+                <div class="step-num">03</div>
               </div>
-              <p>
-                Rings, XP, and streaks show your consistency and make growth visible.
-              </p>
+              <div class="step-content">
+                <h3>Take small steps every day</h3>
+                <p>
+                  Complete missions, build streaks, and keep momentum through practical actions that move your money forward without overwhelm. The goal is steady progress, not unrealistic pressure.
+                </p>
+              </div>
             </div>
 
             <div class="step">
               <div class="step-top">
-                <div class="step-num">4</div>
-                <h3>Get clarity when you need it</h3>
+                <div class="step-num">04</div>
               </div>
-              <p>
-                The AI coach helps you make better money decisions with practical guidance.
-              </p>
+              <div class="step-content">
+                <h3>See progress and keep going</h3>
+                <p>
+                  Track your rings, milestones, and consistency over time while using the AI coach whenever you need clarity, support, or a better next move. Progress stays visible, which makes it easier to stick with the plan.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -1463,7 +1597,7 @@
         <div class="container">
           <div class="section-header">
             <h2>See it in action</h2>
-            <p>Get a glimpse of how WealthBoost AI helps you build wealth<br>through daily missions and progress tracking.</p>
+            <p>Get a glimpse of how WealthBoost helps you build wealth<br>through daily missions and progress tracking.</p>
           </div>
 
           <div class="preview-grid">
@@ -1492,7 +1626,7 @@
         <div class="container">
           <div class="section-header">
             <h2>Choose your subscription plan</h2>
-            <p>Start with a 5-day free trial. No credit card required. Unlock all features with Premium.</p>
+            <p>Choose the plan that fits you best. Selected plans may include a free trial. Unlock all features with Premium.</p>
           </div>
 
           <div class="pricing-grid">
@@ -1502,7 +1636,7 @@
               <div class="pricing-period">per month</div>
               <ul class="pricing-features">
                 <li>All daily missions</li>
-                <li>WealthBoost AI Chat</li>
+                <li>WealthBoost Chat</li>
                 <li>Full progress tracking</li>
                 <li>Side hustle ideas</li>
                 <li style="opacity: 0; pointer-events: none;">Placeholder</li>
@@ -1517,7 +1651,7 @@
               <div class="pricing-period">per quarter</div>
               <ul class="pricing-features">
                 <li>All daily missions</li>
-                <li>WealthBoost AI Chat</li>
+                <li>WealthBoost Chat</li>
                 <li>Full progress tracking</li>
                 <li>Side hustle ideas</li>
                 <li style="opacity: 0; pointer-events: none;">Placeholder</li>
@@ -1532,16 +1666,17 @@
               <div class="pricing-period">per year</div>
               <ul class="pricing-features">
                 <li>All daily missions</li>
-                <li>WealthBoost AI Chat</li>
+                <li>WealthBoost Chat</li>
                 <li>Full progress tracking</li>
                 <li>Side hustle ideas</li>
+                <li>7-day free trial</li>
               </ul>
               <a href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" class="secondary-btn" style="width: 100%; text-align: center; justify-content: center; display: inline-flex;">Get Started</a>
             </div>
           </div>
 
           <div style="text-align: center; margin-top: 32px; color: var(--text-tertiary); font-size: 13px; line-height: 1.6;">
-            All plans include a 5-day free trial. Cancel anytime. Subscriptions auto-renew unless cancelled.
+            Cancel anytime. Subscriptions auto-renew unless cancelled.
           </div>
         </div>
       </section>
@@ -1573,7 +1708,7 @@
             <div class="trust-card">
               <h3>Clear, calm UX</h3>
               <p>
-                No clutter. No guilt. WealthBoost AI is designed to feel like your app: premium,
+                No clutter. No guilt. WealthBoost is designed to feel like your app: premium,
                 simple, and focused on daily wins.
               </p>
             </div>
@@ -1590,19 +1725,19 @@
         <div class="container">
           <div class="section-header">
             <h2>Questions, answered</h2>
-            <p>Common questions about WealthBoost AI and how it helps you build wealth daily.</p>
+            <p>Common questions about WealthBoost and how it helps you build wealth daily.</p>
           </div>
 
           <details>
             <summary>
-              Is WealthBoost AI financial advice?
+              Is WealthBoost financial advice?
               <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </summary>
             <div class="faq-divider" aria-hidden="true"></div>
             <p>
-              WealthBoost AI provides educational coaching and habit‑building. It helps you take practical steps in money, earning, and savings with clear daily guidance.
+              WealthBoost provides educational coaching and habit‑building. It helps you take practical steps in money, earning, and savings with clear daily guidance.
             </p>
           </details>
 
@@ -1655,13 +1790,13 @@
           </div>
 
           <div class="download-cta-logo">
-            <img src="Images/logo-nobackground.png" alt="WealthBoost AI Logo" />
+            <img src="Images/logo-nobackground.png" alt="WealthBoost Logo" />
           </div>
 
           <div class="download-cta-content">
             <p>Start building your wealth today!</p>
-            <a class="download-cta-button" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost AI">
-              Download WealthBoost AI <span class="arrow" aria-hidden="true">→</span>
+            <a class="download-cta-button" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer" aria-label="Download WealthBoost">
+              Download WealthBoost <span class="arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -1674,15 +1809,15 @@
             <div class="footer-left">
               <div class="footer-top">
                 <div class="title">
-                  <img src="Images/logo-nobackground.png" alt="WealthBoost AI Logo" class="footer-logo" />
-                  WealthBoost AI
+                  <img src="Images/logo-nobackground.png" alt="WealthBoost Logo" class="footer-logo" />
+                  WealthBoost
                 </div>
               </div>
               <p>
                 Build wealth with tiny daily actions. Personalized missions, progress tracking, and
                 a focused AI coach designed to help you stay consistent.
               </p>
-              <div class="copyright">© 2026 WealthBoost AI. All rights reserved.</div>
+              <div class="copyright">© 2026 WealthBoost. All rights reserved.</div>
             </div>
                       <div class="footer-right">
               <div class="footer-socials" aria-label="Social links">
@@ -1716,10 +1851,10 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobile-menu">
     <div class="mobile-menu-header">
-      <a class="brand" href="#top" aria-label="WealthBoost AI">
-        <img src="appicon.png" alt="WealthBoost AI" class="brand-icon" />
+      <a class="brand" href="#top" aria-label="WealthBoost">
+        <img src="appicon.png" alt="WealthBoost" class="brand-icon" />
         <div>
-          <div class="brand-name">WealthBoost AI</div>
+          <div class="brand-name">WealthBoost</div>
           <div class="brand-tag">Daily wealth-building, personalized.</div>
         </div>
       </a>
