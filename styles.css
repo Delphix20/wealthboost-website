@@ -812,6 +812,7 @@ h3 {
 }
 
 .goal-cloud-section {
+  scroll-margin-top: 20px;
   padding-top: 92px;
   background: #0d031b;
 }
