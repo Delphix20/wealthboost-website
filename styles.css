@@ -1942,6 +1942,10 @@ h3 {
     transform: translateY(80px);
   }
 
+  .hero-scroll-cue {
+    margin-top: 38px;
+  }
+
   .app-store-badge img {
     width: 158px;
   }
