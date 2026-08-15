@@ -1601,6 +1601,10 @@ h3 {
     margin-top: 52px;
     transform: translateY(64px);
   }
+
+  .hero-scroll-cue {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 1040px) {
@@ -1935,7 +1939,7 @@ h3 {
   .hero-actions {
     gap: 13px;
     margin-top: 25px;
-    transform: translateY(28px);
+    transform: translateY(52px);
   }
 
   .app-store-badge img {
