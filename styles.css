@@ -1603,7 +1603,7 @@ h3 {
   }
 
   .hero-scroll-cue {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 }
 
@@ -1939,7 +1939,7 @@ h3 {
   .hero-actions {
     gap: 13px;
     margin-top: 25px;
-    transform: translateY(52px);
+    transform: translateY(80px);
   }
 
   .app-store-badge img {
