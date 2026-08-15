@@ -1599,7 +1599,7 @@ h3 {
 @media (min-width: 861px) {
   .hero-actions {
     margin-top: 52px;
-    transform: translateY(32px);
+    transform: translateY(64px);
   }
 }
 
@@ -1935,7 +1935,7 @@ h3 {
   .hero-actions {
     gap: 13px;
     margin-top: 25px;
-    transform: none;
+    transform: translateY(28px);
   }
 
   .app-store-badge img {
