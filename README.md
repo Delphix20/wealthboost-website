@@ -15,7 +15,7 @@ Static landing page for WealthBoost on iPhone and iPad. The canonical site is `w
 
 The site has no build step. Publish `index.html`, `privacy_policy.html`, `styles.css`, `site.js`, `assets/`, `robots.txt`, `sitemap.xml`, and `CNAME` through GitHub Pages.
 
-Google Analytics loads only after the visitor allows optional analytics.
+Cloudflare Web Analytics measures aggregate visits without cookies. Google Analytics loads only after the visitor allows optional analytics.
 
 The App Store destination is:
 
