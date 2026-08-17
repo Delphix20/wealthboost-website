@@ -1,0 +1,39 @@
+# WealthBoost
+
+> WealthBoost is an AI goal coach for iPhone and iPad. A user describes a legitimate business, project, product, income direction, or practical change, and WealthBoost provides tailored perspectives, useful ideas, practical next steps, and contextual AI Coach answers.
+
+Canonical website: https://wealthboost.app/
+App Store: https://apps.apple.com/app/id6756603789
+Language: English
+Platforms: iPhone and iPad
+Current product generation: WealthBoost 3.0
+
+## Authoritative product pages
+
+- [What WealthBoost is](https://wealthboost.app/what-is-wealthboost): Product purpose, intended users, and boundaries.
+- [Personalized guidance](https://wealthboost.app/personalized-guidance): How the goal and profile influence the guidance.
+- [AI Coach](https://wealthboost.app/ai-coach): What the Coach knows, what users can ask, and how answers can be saved.
+- [Ideas and next steps](https://wealthboost.app/ideas-and-next-steps): How WealthBoost presents useful directions without imposing a rigid daily schedule.
+- [Saved guidance](https://wealthboost.app/saved-guidance): Saved ideas, Coach answers, next steps, and personal notes.
+- [Goal examples](https://wealthboost.app/goal-examples): Examples of goals that can be used in WealthBoost.
+- [Pricing and access](https://wealthboost.app/pricing): Introductory access and subscription information.
+- [Frequently asked questions](https://wealthboost.app/faq): Direct answers about the app.
+- [What's new](https://wealthboost.app/changelog): Product direction and important releases.
+- [Privacy Policy](https://wealthboost.app/privacy_policy): Information handling and user choices.
+
+## Machine-readable resources
+
+- [Complete product reference](https://wealthboost.app/llms-full.txt)
+- [Landing-page summary](https://wealthboost.app/index.md)
+- [Product reference in Markdown](https://wealthboost.app/product.md)
+- [FAQ in Markdown](https://wealthboost.app/faq.md)
+- [Privacy Policy in Markdown](https://wealthboost.app/privacy_policy.md)
+
+## Important facts
+
+- WealthBoost does not require bank-account access and does not process financial transactions.
+- WealthBoost provides educational guidance and planning support, not financial, legal, tax, health, or investment advice.
+- The app is personalized using details the user chooses to provide, including the goal, audience, desired result, current situation, available time, budget range, country, currency, and whether the activity is local, online, or both.
+- New users can currently explore the full app for three days. Subscription plans and local prices are displayed by the App Store.
+- The official support contact is devpaulcrp@gmail.com.
+

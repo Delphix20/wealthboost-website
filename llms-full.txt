@@ -1,0 +1,150 @@
+# WealthBoost: Complete Product Reference
+
+Last updated: August 17, 2026
+Canonical source: https://wealthboost.app/
+App Store: https://apps.apple.com/app/id6756603789
+
+## Summary
+
+WealthBoost is an AI goal coach for iPhone and iPad. It is built for people who want to create, change, improve, or grow something and need useful direction around that goal.
+
+A user can describe a legitimate business, project, product, income direction, or practical change. WealthBoost uses that information to prepare tailored perspectives, ideas, priorities, practical next steps, and contextual AI Coach answers.
+
+WealthBoost is not a rigid daily task tracker and does not require the user to follow a long weekly or annual schedule. The user can return whenever a new angle, useful idea, next step, or answer is needed.
+
+## Core product model
+
+The user's goal is the central context for the app. WealthBoost may use the following user-provided details:
+
+- The activity, project, business, product, idea, or change the user is working on.
+- What the user is currently doing.
+- Who the goal should help or serve.
+- The result the user wants.
+- The user's current situation or stage.
+- The time and budget the user can use.
+- Whether the activity is local, online, or both.
+- Country and preferred currency.
+- Feedback about which guidance is useful or not relevant.
+
+More specific and accurate profile information generally produces more relevant guidance. The user can update the profile when the direction changes.
+
+## Home
+
+The Home page presents a compact view of the current goal and two primary forms of guidance:
+
+1. A perspective that highlights something important the user may have missed.
+2. A practical next move that can help the user make progress or learn something useful.
+
+The user can request another perspective or another next step. The content remains connected to the profile rather than switching to unrelated generic advice.
+
+The Home page can also display optional progress elements such as Level and Streak. These reward meaningful interactions and do not control the user's goal.
+
+## Plan
+
+The Plan page organizes what matters now, what can follow, and what should happen later. It is intended to establish order without forcing the user into a strict day-by-day schedule.
+
+Plan guidance can be saved and revisited. It should remain specific to the current goal and stage.
+
+## Ideas
+
+The Ideas page offers multiple directions connected to the user's goal. An idea may help the user improve an existing direction, simplify an approach, test an assumption, reach the intended audience, create a useful offer, or consider another practical route.
+
+The user can expand an idea for more detail, move between alternatives, save useful ideas, and rate whether an idea was useful, partly useful, or not relevant. Feedback can help later guidance remain relevant.
+
+## AI Coach
+
+The AI Coach is connected to the user's current goal and profile. This reduces the need to repeat the entire situation in each message.
+
+The user can ask about:
+
+- A decision or tradeoff.
+- How to improve an idea.
+- What to do next.
+- A problem or obstacle.
+- A customer, audience, product, service, or offer.
+- A useful question to investigate.
+
+Coach answers can use paragraphs, headings, and lists when the structure benefits the answer. The app does not force every answer into bullet points.
+
+Useful Coach answers can be saved. Conversation history is stored on the user's device, while a Coach answer is added to Saved Guidance only when the user chooses to save it.
+
+## Saved Guidance
+
+Saved Guidance keeps selected ideas, next steps, and Coach answers in one place. Users can also add a personal note. A saved item can be marked as used when it has helped in a real situation.
+
+Removing a saved item requires confirmation.
+
+## Goal examples
+
+Examples of goals suitable for WealthBoost include:
+
+- Build a useful mobile app.
+- Open a restaurant people return to.
+- Bring more clients to an auto repair shop.
+- Open a self-service car wash.
+- Turn a useful skill into income.
+- Grow an online store.
+- Turn an idea into a real product.
+- Find better freelance clients.
+
+These are examples, not fixed categories. WealthBoost can work with other legitimate and sufficiently specific goals.
+
+## Access and subscriptions
+
+The app is free to download from the App Store. New users can currently explore the full app for three days without starting an App Store subscription. After that introductory access period, an active subscription is required to continue using the app.
+
+WealthBoost currently presents one-month and twelve-month subscription options. Eligible users may see an App Store introductory offer for the annual option. Eligibility, prices, currencies, trial terms, and renewal information are controlled and displayed by the App Store.
+
+Users who subscribe during introductory access no longer use the app-controlled three-day countdown. StoreKit entitlement status controls access. If an App Store introductory offer is cancelled, access remains available until the entitlement expires.
+
+## Devices and widgets
+
+WealthBoost is designed for iPhone and iPad. Home Screen and Lock Screen widgets can display compact guidance and status information sized for the selected widget family.
+
+## Notifications
+
+Users can enable optional reminders and choose a reminder schedule in the app. Notifications are scheduled on the device and can be changed or disabled by the user.
+
+## Privacy and data
+
+WealthBoost does not require access to a bank account and does not process financial transactions.
+
+Profile information, generated guidance, feedback, saved items, progress records, support requests, and operational usage records may be processed to provide and protect the service. AI requests are sent through the WealthBoost backend. The backend uses Supabase for hosting and data services and OpenAI for generated guidance.
+
+Users should not enter passwords, payment-card numbers, government identifiers, medical records, or other highly sensitive information into profile fields, notes, support messages, or Coach questions.
+
+The app includes a data-deletion flow. Deleting WealthBoost data does not cancel an App Store subscription.
+
+Full policy: https://wealthboost.app/privacy_policy
+
+## Product boundaries
+
+WealthBoost provides educational guidance and planning support. AI-generated information can be incomplete or incorrect. WealthBoost does not replace financial, legal, tax, health, investment, or other qualified professional advice.
+
+Users remain responsible for decisions and should verify important information before acting.
+
+## Official identity
+
+- Product name: WealthBoost
+- Official website: https://wealthboost.app/
+- Redirecting legacy domain: https://wealthboost.ai/
+- App Store: https://apps.apple.com/app/id6756603789
+- Publisher website: https://paulcrp.com/
+- Instagram: https://www.instagram.com/wealthboost.ai/
+- TikTok: https://www.tiktok.com/@wealthboost.ai
+- X: https://x.com/DevPaulCrp
+- Support: devpaulcrp@gmail.com
+
+## Authoritative pages
+
+- https://wealthboost.app/what-is-wealthboost
+- https://wealthboost.app/personalized-guidance
+- https://wealthboost.app/ai-coach
+- https://wealthboost.app/ideas-and-next-steps
+- https://wealthboost.app/saved-guidance
+- https://wealthboost.app/goal-examples
+- https://wealthboost.app/pricing
+- https://wealthboost.app/faq
+- https://wealthboost.app/changelog
+- https://wealthboost.app/privacy_policy
+

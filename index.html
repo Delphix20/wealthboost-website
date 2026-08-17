@@ -8,9 +8,11 @@
 
   <title>AI Goal Coach &amp; Personalized Guidance | WealthBoost</title>
   <meta name="description" content="Turn any business, project, or personal goal into tailored ideas, practical next steps, and AI coaching with WealthBoost for iPhone and iPad.">
+  <meta name="author" content="WealthBoost">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="apple-itunes-app" content="app-id=6756603789">
   <link rel="canonical" href="https://wealthboost.app/">
+  <link rel="alternate" type="text/markdown" href="https://wealthboost.app/index.md" title="WealthBoost overview in Markdown">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
@@ -32,44 +34,156 @@
   <link rel="apple-touch-icon" href="assets/app-icon.png">
   <link rel="preload" href="assets/screens/home.webp" as="image" type="image/webp" fetchpriority="high">
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=18">
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://wealthboost.app/#organization",
+          "name": "WealthBoost",
+          "url": "https://wealthboost.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://wealthboost.app/assets/app-icon.png",
+            "width": 1024,
+            "height": 1024
+          },
+          "sameAs": [
+            "https://apps.apple.com/app/id6756603789",
+            "https://www.instagram.com/wealthboost.ai/",
+            "https://www.tiktok.com/@wealthboost.ai",
+            "https://x.com/DevPaulCrp",
+            "https://paulcrp.com"
+          ]
+        },
+        {
           "@type": "WebSite",
           "@id": "https://wealthboost.app/#website",
           "url": "https://wealthboost.app/",
           "name": "WealthBoost",
-          "inLanguage": "en"
+          "description": "Official website for WealthBoost, an AI goal coach for iPhone and iPad.",
+          "inLanguage": "en-US",
+          "publisher": {
+            "@id": "https://wealthboost.app/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://wealthboost.app/#webpage",
+          "url": "https://wealthboost.app/",
+          "name": "AI Goal Coach and Personalized Guidance | WealthBoost",
+          "description": "Turn a business, project, product, or practical goal into tailored perspectives, useful ideas, next steps, and AI coaching.",
+          "isPartOf": {
+            "@id": "https://wealthboost.app/#website"
+          },
+          "about": {
+            "@id": "https://wealthboost.app/#app"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://wealthboost.app/assets/social-preview.png",
+            "width": 1200,
+            "height": 630
+          },
+          "inLanguage": "en-US",
+          "dateModified": "2026-08-17"
         },
         {
           "@type": "MobileApplication",
           "@id": "https://wealthboost.app/#app",
           "name": "WealthBoost",
           "applicationCategory": "BusinessApplication",
+          "applicationSubCategory": "Goal planning and AI coaching",
           "operatingSystem": "iOS, iPadOS",
-          "description": "Tailored ideas, practical next steps, and AI coaching built around each user's goal.",
+          "softwareVersion": "3.0",
+          "description": "Personalized perspectives, ideas, practical next steps, and AI coaching built around a user's business, project, product, income direction, or practical goal.",
           "url": "https://wealthboost.app/",
           "downloadUrl": "https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789",
+          "installUrl": "https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789",
           "image": "https://wealthboost.app/assets/app-icon.png",
+          "screenshot": [
+            "https://wealthboost.app/assets/screens/home.webp",
+            "https://wealthboost.app/assets/screens/plan.webp",
+            "https://wealthboost.app/assets/screens/ideas.webp",
+            "https://wealthboost.app/assets/screens/coach.webp"
+          ],
+          "featureList": [
+            "Personalized guidance based on the user's goal and situation",
+            "Useful perspectives and practical next steps",
+            "Goal-specific ideas and alternative directions",
+            "AI Coach answers connected to the user's profile",
+            "Saved guidance and personal notes",
+            "Optional progress milestones, levels, and streaks"
+          ],
+          "inLanguage": "en-US",
+          "isAccessibleForFree": true,
           "offers": {
             "@type": "Offer",
             "price": "0",
-            "priceCurrency": "USD"
+            "priceCurrency": "USD",
+            "description": "Free App Store download with limited introductory access. Subscription options and local prices are displayed by the App Store."
           },
           "publisher": {
-            "@type": "Organization",
-            "name": "WealthBoost",
-            "url": "https://wealthboost.app/",
-            "sameAs": [
-              "https://www.instagram.com/wealthboost.ai/",
-              "https://www.tiktok.com/@wealthboost.ai",
-              "https://x.com/DevPaulCrp"
-            ]
-          }
+            "@id": "https://wealthboost.app/#organization"
+          },
+          "sameAs": "https://apps.apple.com/app/id6756603789"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://wealthboost.app/#faq-structured-data",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What kind of goal can I use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can use WealthBoost for a legitimate business, project, product, income direction, or practical change you want to make. Specific goals produce more useful guidance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is the guidance personalized?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WealthBoost uses the goal, audience, desired result, current situation, time, budget, and direction you provide. Feedback and saved guidance also help the experience remain relevant."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I have to use WealthBoost every day?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. You can open WealthBoost whenever you need a new angle, a next step, an idea, or help with a decision."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What can I try before subscribing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "New users can explore the full app for three days. After that, a subscription is required to continue. Available plans, introductory offers, and local prices are shown in the App Store."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is WealthBoost financial advice?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. WealthBoost provides educational guidance and planning support. Important financial, legal, tax, or investment decisions should be reviewed with a qualified professional."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use WealthBoost on iPad?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. WealthBoost is designed for iPhone and iPad."
+              }
+            }
+          ]
         }
       ]
     }
@@ -400,6 +514,29 @@
             <p>Yes. WealthBoost is designed for iPhone and iPad.</p>
           </details>
         </div>
+
+        <a class="faq-more-link reveal" href="faq">Read all frequently asked questions <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <section class="discovery-section" aria-labelledby="discovery-title">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">EXPLORE WEALTHBOOST</p>
+          <h2 id="discovery-title">Learn how each part helps your goal.</h2>
+          <p>Short, direct explanations of the product, personalization, access, and the information WealthBoost uses.</p>
+        </div>
+
+        <div class="discovery-grid reveal">
+          <a href="what-is-wealthboost"><strong>What is WealthBoost?</strong><span>The product, its purpose, and its boundaries.</span></a>
+          <a href="personalized-guidance"><strong>Personalized guidance</strong><span>How your goal and situation shape the result.</span></a>
+          <a href="ideas-and-next-steps"><strong>Ideas and next steps</strong><span>Different ways the app can help you move forward.</span></a>
+          <a href="ai-coach"><strong>AI Coach</strong><span>Ask a question with your current goal already in context.</span></a>
+          <a href="saved-guidance"><strong>Saved Guidance</strong><span>Keep ideas, answers, next steps, and your own notes.</span></a>
+          <a href="goal-examples"><strong>Goal examples</strong><span>See the range of businesses, projects, and ideas supported.</span></a>
+          <a href="pricing"><strong>Pricing and access</strong><span>Free access, subscriptions, and App Store billing.</span></a>
+          <a href="changelog"><strong>What's new</strong><span>See what changed in the WealthBoost 3.0 rebuild.</span></a>
+        </div>
       </div>
     </section>
 
@@ -445,10 +582,19 @@
       <div class="footer-link-groups">
         <div>
           <h2>Product</h2>
-          <a href="#personalized">Personalized guidance</a>
-          <a href="#inside">Inside the app</a>
-          <a href="#how-it-works">How it works</a>
+          <a href="what-is-wealthboost">What is WealthBoost?</a>
+          <a href="personalized-guidance">Personalized guidance</a>
+          <a href="ideas-and-next-steps">Ideas and next steps</a>
+          <a href="ai-coach">AI Coach</a>
           <a class="download-link" href="https://apps.apple.com/app/wealthboost-ai-money-coach/id6756603789" target="_blank" rel="noopener noreferrer">App Store</a>
+        </div>
+        <div>
+          <h2>Resources</h2>
+          <a href="goal-examples">Goal examples</a>
+          <a href="saved-guidance">Saved Guidance</a>
+          <a href="pricing">Pricing and access</a>
+          <a href="faq">FAQ</a>
+          <a href="changelog">What's new</a>
         </div>
         <div>
           <h2>Company</h2>
