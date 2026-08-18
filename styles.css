@@ -1067,6 +1067,8 @@ h3 {
 }
 
 .hero-discover-link {
+  position: relative;
+  top: 34px;
   color: rgba(255, 255, 255, 0.9);
   font-size: 17px;
   font-weight: 800;
