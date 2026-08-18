@@ -382,6 +382,7 @@ h3 {
   width: 31px;
   height: 31px;
   object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .resource-hero h1 {
